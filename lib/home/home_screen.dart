@@ -14,8 +14,23 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: NetworkImage(
+                      'https://i.imgur.com/TyCSG9A.png',
+                    ),
+                    fit: BoxFit.fill),
+              ),
+            ),
+            const SizedBox(height: 20.0),
             Text(
-              username.isEmpty ? 'No username' : 'Hello username: $username',
+              username.isEmpty
+                  ? 'No username'
+                  : 'Hello $username, welcome to C-Tech',
               style: TextStyle(fontSize: 30),
               textAlign: TextAlign.center,
             ),

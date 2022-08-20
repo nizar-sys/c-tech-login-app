@@ -1,5 +1,6 @@
 import 'package:c_tech_app/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -9,12 +10,47 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 3,
+      navigateAfterSeconds: LoginScreen2(),
+      title: const Text(
+        'Welcome to C-Tech',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20.0,
+        ),
+      ),
+      image: Image.network(
+        'https://i.imgur.com/TyCSG9A.png',
+        width: 200.0,
+        height: 200.0,
+      ),
+      backgroundColor: Colors.white,
+      styleTextUnderTheLoader: TextStyle(),
+      photoSize: 100.0,
+      loaderColor: Colors.red,
+    );
+  }
+}
+
+class LoginScreen2 extends StatefulWidget {
+  LoginScreen2({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen2> createState() => _LoginScreen2State();
+}
+
+class _LoginScreen2State extends State<LoginScreen2> {
   String username = '';
   String password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // remove icon back
+        automaticallyImplyLeading: false,
         title: const Text('Login'),
       ),
       body: SingleChildScrollView(
